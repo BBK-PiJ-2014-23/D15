@@ -8,21 +8,30 @@ import java.util.*;
 public class ErrorHandlingOnUserInput
 {
     public static void main (String[] args) {
+        int numbers = readUserInput("Please enter the amount of numbers to be entered: ");
         int current = 0;
         int total = 0;
-        int i = 0;
-        for (i = 0; i < 10; i++) {
-            Scanner sc = new Scanner(System.in);
-            System.out.print("Please enter a number: ");
-            try {
-                current = sc.nextInt();
-            } catch (InputMismatchException ex) {
-                i--;
-                System.out.println("What you entered is not an integer number!");
-            }
+        for (int i = 0; i < numbers; i++) {
+            current = readUserInput("Please enter a number: ");
             total += current;
         }
-        int mean = total / i;
+        int mean = total / numbers;
         System.out.println("The mean average is: " + mean);
+    }
+
+    private static int readUserInput(String prompt) {
+        int input = 0;
+        boolean isValid = false;
+        while (!isValid) {
+            Scanner sc = new Scanner(System.in);
+            System.out.print(prompt);
+            try {
+                input = sc.nextInt();
+                isValid = true;
+            } catch (InputMismatchException ex) {
+                System.out.println("What you entered is not an integer number!");
+            }
+        }
+        return input;
     }
 }
