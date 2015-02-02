@@ -14,6 +14,10 @@ public class MorePatients
         String name = sc.next();
         System.out.print("Enter new patient's age: ");
         int age = sc.nextInt();
-        list.add(new Patient(name, age));
+        try {
+            list.add(new Patient(name, age));
+        } catch (IllegalArgumentException ex) {
+            System.out.println("Invalid age");
+        }
     }
 }
