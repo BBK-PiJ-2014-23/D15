@@ -35,7 +35,7 @@ public class CodeFlow
             ex.printStackTrace();
         }
     }
-    
+
     public static void main(String[] args) {
         CodeFlow flow = new CodeFlow();
         flow.launch(0);
@@ -46,7 +46,10 @@ public class CodeFlow
         flow = new CodeFlow();
         flow.launch(6);
     }
-    
-    
+    <<<<<<< HEAD
+
     //why not
+    =======
+    //test
+    >>>>>>> 55cf278ddada89413f5ea5ef03a95b729dfe2784
 }
